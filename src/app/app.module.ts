@@ -9,7 +9,22 @@ import { DeleteuserComponent } from './users/deleteuser/deleteuser.component';
 import { LandingComponent } from './home/landing/landing.component';
 import { AppheaderComponent } from './appheader/appheader.component';
 import { AppfooterComponent } from './appfooter/appfooter.component';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './users/login/login.component';
+import { LogoutComponent } from './users/logout/logout.component';
 
+const appRoutes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'users/view', component: ViewuserComponent },
+  { path: 'users/update', component: UpdateuserComponent },
+  { path: 'users/delete', component: DeleteuserComponent },
+  { path: 'home', component: LandingComponent },
+  { path: 'appheader', component: AppheaderComponent },
+  { path: 'appfooter', component: AppfooterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: '', redirectTo: '/landing', pathMatch: 'full' }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +34,13 @@ import { AppfooterComponent } from './appfooter/appfooter.component';
     DeleteuserComponent,
     LandingComponent,
     AppheaderComponent,
-    AppfooterComponent
+    AppfooterComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
